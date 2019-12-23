@@ -1,6 +1,4 @@
-# References
-
-Reference implementations for finding commonalities:
+# Reference Implementations
 
 - https://github.com/auraphp/Aura.Payload
 - https://github.com/auraphp/Aura.Payload_Interface
