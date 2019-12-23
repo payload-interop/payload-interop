@@ -1,0 +1,5 @@
+{
+    "name": "payload-interop/payload-interop",
+    "type": "library",
+    "description": "Specification for interoperable Domain Payload."
+}
