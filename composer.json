@@ -1,5 +1,11 @@
 {
     "name": "payload-interop/payload-interop",
     "type": "library",
-    "description": "Specification for interoperable Domain Payload."
+    "description": "An interoperable Domain Payload Object specification.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PayloadInterop\\" : "src/"
+        }
+    }
 }
