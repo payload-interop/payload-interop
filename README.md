@@ -55,7 +55,9 @@ method.
 
 Having found that commonality, this project encourages implementors to provide
 additional reading methods typhinted to their respective domain objects, to
-enable better static analysis and automated refactoring.
+enable better static analysis and automated refactoring. In doing so,
+implementors may find themselves with multiple _Domain Payload Object_ classes,
+one for each domain interaction (or family of related interactions).
 
 ### Domain Status
 
