@@ -1,7 +1,8 @@
 # payload-interop
 
 The `payload-interop` project defines an interoperable interface for reading
-the domain *result* and domain *status* from a _Domain Payload Object_.
+the domain *result* and domain *status* from a _Domain Payload Object_, in a
+way that is independent of any particular user interface.
 
 ## Purpose
 
@@ -13,17 +14,19 @@ a _Domain Payload Object_ provides *entire domain objects*. Its purpose is to
 transport those domain objects across the architectural boundary from the domain
 layer to the user interface layer.
 
-> **Note:**
->
-> The _Domain Payload Object_ is **not** for intra-domain use. It is only for
-> transporting a domain result across the domain layer boundary back to the
-> calling code, typically the user interface layer.
+The _Domain Payload Object_ is **not** for intra-domain use. It is only for
+transporting a domain result across the domain layer boundary back to the
+calling code, typically the user interface layer.
+
+Futher, the _Domain Payload Object_ is independent of any particular user
+interface. As part of the domain layer, it should have no knowledge of HTTP or
+CLI contexts.
 
 This project defines only a reading interface, so that any user interface code
 can know how to get both the result and the status out of the _Domain Payload
 Object_.
 
-This project does not define a writing or mutatio interface. Creation and
+This project does not define a writing or mutation interface. Creation and
 manipulation of _Domain Payload Objects_ are core application concerns, not user
 interface concerns. The domain-specific nature places it outside the scope of an
 interoperability specification.
