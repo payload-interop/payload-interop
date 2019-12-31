@@ -19,11 +19,11 @@ layer to the user interface layer.
 > transporting a domain result across the domain layer boundary back to the
 > calling code, typically the user interface layer.
 
-This project defines only a *reading* interface, so that any user interface code
+This project defines only a reading interface, so that any user interface code
 can know how to get both the result and the status out of the _Domain Payload
 Object_.
 
-It does not define a *writing* or *mutation* interface. Creation and
+This project does not define a writing or mutatio interface. Creation and
 manipulation of _Domain Payload Objects_ are core application concerns, not user
 interface concerns. The domain-specific nature places it outside the scope of an
 interoperability specification.
