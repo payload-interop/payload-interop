@@ -31,7 +31,7 @@ interoperability specification.
 ## Summary
 
 Research on [Packagist](http://packagist.org) and elsewhere revealed a number
-of existing [_Domain Payload Object_ implmentations](./IMPLEMENTATIONS.md).
+of existing [_Domain Payload Object_ implementations](./IMPLEMENTATIONS.md).
 The commonalities discovered by this research are codified in the
 [`DomainPayload` interface](./src/DomainPayload.php) and the
 [`DomainStatus` class of constants](./src/DomainStatus.php).
