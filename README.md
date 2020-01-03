@@ -43,11 +43,11 @@ The commonalities discovered by this research are codified in the
 
 All of the reference implementations provided functionality to get the domain
 results or domain data for presentation. It was noted that these results
-included not only domain objects, but also th input as received by the domain,
+included not only domain objects, but also the input as received by the domain,
 error or validation messages, exception objects, and so on.
 
 As such, this project expands the semantics of the _Domain Payload Object_
-definition to include include any data produced by the domain layer that might
+definition to include any data produced by the domain layer that might
 be needed for presentation by the user interface.
 
 This commonality is reflected in the `DomainPayload::getResult() : array`
