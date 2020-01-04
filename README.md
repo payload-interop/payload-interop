@@ -89,3 +89,88 @@ method, along with the `DomainStatus` class of constants with these values:
  - `SUCCESS`
  - `UNAUTHORIZED`
  - `UPDATED`
+
+Implementors may add other status values as appropriate for their domain.
+
+## Implementation Notes
+
+A basic, bare-bones implementation might look something like this:
+
+```php
+namespace Application;
+
+use PayloadInterop\DomainPayload;
+
+class Payload implements DomainPayload
+{
+    protected $status;
+
+    protected $result;
+
+    public function __construct(string $status, array $result)
+    {
+        $this->status = $status;
+        $this->result = $result;
+    }
+
+    public function getStatus() : string
+    {
+        return $this->status;
+    }
+
+    public function getResult() : array
+    {
+        return $this->result;
+    }
+}
+```
+
+A domain layer _Application Service_, _Transaction Script_, or _Use Case_ might
+use it like so:
+
+```php
+namespace Application;
+
+use Domain\Exception;
+use Domain\Forum\ForumRepository;
+use PayloadInterop\DomainPayload;
+
+class CreateForumTopic
+{
+    protected $forumRepository;
+
+    public function __construct(ForumRepository $forumRepository)
+    {
+        $this->forumRepository = $forumRepository;
+    }
+
+    public function __invoke(string $title, string $body) : Payload
+    {
+        try {
+
+            $topic = $this->forumRepository->newTopic($title, $body);
+            $this->forumRepository->save($topic);
+            return new Payload(DomainStatus::CREATED, [
+                'topic' => $topic
+            ]);
+
+        } catch (Exception\InvalidData $e) {
+
+            return new Payload(DomainStatus::INVALID, [
+                'input' => [
+                    'title' => $title,
+                    'body' => $body,
+                ]],
+                'messages' => $e->getMessages()
+            );
+
+        } catch (\Exception $e) {
+
+            return new Payload(DomainStatus::ERROR, [
+                'exception' => $e
+            ]);
+
+        }
+    }
+}
+```
