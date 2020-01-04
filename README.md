@@ -131,8 +131,9 @@ use it like so:
 ```php
 namespace Application;
 
-use Domain\Exception;
+use Domain\Exception\InvalidInput;
 use Domain\Forum\ForumRepository;
+use Exception;
 use PayloadInterop\DomainPayload;
 
 class CreateForumTopic
@@ -154,7 +155,7 @@ class CreateForumTopic
                 'topic' => $topic
             ]);
 
-        } catch (Exception\InvalidData $e) {
+        } catch (InvalidInput $e) {
 
             return new Payload(DomainStatus::INVALID, [
                 'input' => [
@@ -164,7 +165,7 @@ class CreateForumTopic
                 'messages' => $e->getMessages()
             );
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
             return new Payload(DomainStatus::ERROR, [
                 'exception' => $e
