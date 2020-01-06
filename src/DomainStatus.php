@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace PayloadInterop;
 
-class DomainStatus
+interface DomainStatus
 {
     /**
      * Input accepted for later processing.
@@ -59,9 +59,4 @@ class DomainStatus
      * Update succeeded.
      */
     const UPDATED = 'UPDATED';
-
-    /**
-     * Disallow instantiation.
-     */
-    final private function __construct() {}
 }
