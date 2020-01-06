@@ -37,7 +37,7 @@ Research on [Packagist](http://packagist.org) and elsewhere revealed a number
 of existing [_Domain Payload Object_ implementations](./IMPLEMENTATIONS.md).
 The commonalities discovered by this research are codified in the
 [`DomainPayload` interface](./src/DomainPayload.php) and the
-[`DomainStatus` class of constants](./src/DomainStatus.php).
+[`DomainStatus` constants](./src/DomainStatus.php).
 
 ### Domain Result
 
@@ -76,7 +76,7 @@ agnostic and common to most or all implementations. These were most frequently
 string valued constants.
 
 This commonality is reflected in the `DomainPayload::getStatus() : string`
-method, along with the `DomainStatus` class of constants with these values:
+method, along with the `DomainStatus` constants:
 
  - `ACCEPTED`
  - `CREATED`
