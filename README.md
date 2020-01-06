@@ -134,7 +134,7 @@ namespace Application;
 use Domain\Exception\InvalidInput;
 use Domain\Forum\ForumRepository;
 use Exception;
-use PayloadInterop\DomainPayload;
+use PayloadInterop\DomainStatus;
 
 class CreateForumTopic
 {
