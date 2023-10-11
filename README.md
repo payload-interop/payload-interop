@@ -18,9 +18,11 @@ The _Domain Payload Object_ is **not** for intra-domain use. It is only for
 transporting a domain result across the domain layer boundary back to the
 calling code, typically the user interface layer.
 
-Futher, the _Domain Payload Object_ is independent of any particular user
+Further, the _Domain Payload Object_ is independent of any particular user
 interface. As part of the domain layer, it should have no knowledge of HTTP or
 CLI contexts.
+
+For more usage notes, please refer to [USING.md](./USING.md).
 
 This project defines only a reading interface, so that any user interface code
 can know how to get both the result and the status out of the _Domain Payload
